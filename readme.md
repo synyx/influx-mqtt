@@ -36,6 +36,7 @@ POST data:
 In order to build the Influx-mqtt service, one needs to have these dependencies installed:
 
 - g++ (C++ compiler)
+- Make
 - libmosquittopp (C++ wrapper for libmosquitto)
 - libmosquitto (C MQTT library)
 - POCO libraries (HTTP and text parsing)
@@ -47,4 +48,6 @@ Simply execute the following command in the folder with the Makefile:
 
 This should build and link the project, creating a single 'influx_mqtt' library.
 
-Building the code has been tested on OS X and Linux (Ubuntu 14.04LTS, 16.04LTS, Debian (stable).
+Building the code has been tested on OS X and Linux (Ubuntu 14.04LTS, 16.04LTS, Debian (stable), Raspbian).
+
+On Windows, use MinGW with the MSYS2 environment or similar.
