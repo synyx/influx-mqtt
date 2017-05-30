@@ -21,15 +21,17 @@ The payload format format for an MQTT message is expected to have this format:
 
 These MQTT payload values are then parsed and written to the InfluxDB in this format:
 
-URL: *[InfluxDB URL]/write?db=[DB name]*
+**URL:** 
 
-POST data:
+*[InfluxDB URL]/write?db=[DB name]*
+
+**POST data:**
 
 *[series],location=[location] value=[value]*
 
 
 
-> Please note that the Influx Line Protocol does not support spaces and similar. As this service currently does not escape these characters, adding spaces to a location or value will result in the InfluxDB write failing.
+> Please note that the Influx Line Protocol does **not** support spaces and similar. As this service currently does not escape these characters, adding spaces to a location or value will result in the InfluxDB write failing.
 
 ## Building the application ##
 
@@ -46,7 +48,7 @@ Simply execute the following command in the folder with the Makefile:
 
     make
 
-This should build and link the project, creating a single 'influx_mqtt' library.
+This should build and link the project, creating a single 'influx_mqtt' executable.
 
 Building the code has been tested on OS X and Linux (Ubuntu 14.04LTS, 16.04LTS, Debian (stable), Raspbian).
 
@@ -111,3 +113,5 @@ Features which might be useful but currently absent:
 1. Password-based authentication for MQTT.
 2. TLS-based encryption for MQTT.
 3. Graceful shutdown (unsubscribe).
+4. Escaping of spaces in location and value strings.
+
